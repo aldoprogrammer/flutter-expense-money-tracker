@@ -28,6 +28,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
+        child: const Icon(CupertinoIcons.add),
       ),
     );
   }
