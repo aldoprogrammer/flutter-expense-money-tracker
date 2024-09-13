@@ -27,9 +27,24 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(CupertinoIcons.add),
-      ),
+          onPressed: () {},
+          shape: const CircleBorder(),
+          child: Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                colors: [
+                  Theme.of(context).colorScheme.primary,
+                  Theme.of(context).colorScheme.secondary,
+                  Theme.of(context).colorScheme.tertiary,
+                ],
+              ),
+            ),
+            // shape: const CircleBorder(),
+            child: const Icon(CupertinoIcons.add),
+          )),
     );
   }
 }
