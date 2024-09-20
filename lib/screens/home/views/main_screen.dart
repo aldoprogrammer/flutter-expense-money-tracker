@@ -69,16 +69,21 @@ class MainScreen extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.width / 2,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).colorScheme.primary,
-                  Theme.of(context).colorScheme.secondary,
-                  Theme.of(context).colorScheme.tertiary,
-                ],
-                transform: const GradientRotation(pi / 4),
-              ),
-              borderRadius: BorderRadius.circular(30),
-            ),
+                gradient: LinearGradient(
+                  colors: [
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.secondary,
+                    Theme.of(context).colorScheme.tertiary,
+                  ],
+                  transform: const GradientRotation(pi / 4),
+                ),
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 2,
+                      color: Colors.grey.shade300,
+                      offset: Offset(5, 5))
+                ]),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -174,7 +179,100 @@ class MainScreen extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Transactions",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Theme.of(context).colorScheme.onSurface,
+                      fontWeight: FontWeight.w600)),
+              GestureDetector(
+                onTap: () {},
+                child: Text("View All",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Theme.of(context).colorScheme.outline,
+                        fontWeight: FontWeight.w600)),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: 3,
+                  itemBuilder: (context, int i) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Container(
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                            color: Colors.yellow[700],
+                                            shape: BoxShape.circle),
+                                      ),
+                                      Icon(
+                                        Icons.food_bank,
+                                        color: Colors.white,
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 12,
+                                  ),
+                                  Text("Food",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSurface,
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text("-\$10.000",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSurface,
+                                          fontWeight: FontWeight.w500)),
+                                  Text("Today",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .outline,
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }))
         ]),
       ),
     );
