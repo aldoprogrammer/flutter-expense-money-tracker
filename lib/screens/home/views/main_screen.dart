@@ -232,16 +232,17 @@ class MainScreen extends StatelessWidget {
                                             color: transactionsData[i]['color'],
                                             shape: BoxShape.circle),
                                       ),
-                                      const Icon(
-                                        Icons.food_bank,
-                                        color: Colors.white,
-                                      )
+                                      transactionsData[i]['icon'],
+                                      // const Icon(
+                                      //   Icons.food_bank,
+                                      //   color: Colors.white,
+                                      // )
                                     ],
                                   ),
                                   const SizedBox(
                                     width: 12,
                                   ),
-                                  Text("Food",
+                                  Text(transactionsData[i]['name'],
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Theme.of(context)
@@ -251,15 +252,16 @@ class MainScreen extends StatelessWidget {
                                 ],
                               ),
                               Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Text("-\$10.000",
+                                  Text(transactionsData[i]['totalAmount'],
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Theme.of(context)
                                               .colorScheme
                                               .onSurface,
                                           fontWeight: FontWeight.w500)),
-                                  Text("Today",
+                                  Text(transactionsData[i]['date'],
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Theme.of(context)
