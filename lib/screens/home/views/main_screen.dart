@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:expense_tracker/data/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,7 @@ class MainScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Jhon Doe",
+                        "Jhon Doe Aldo Ganti Lah",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -82,7 +83,7 @@ class MainScreen extends StatelessWidget {
                   BoxShadow(
                       blurRadius: 2,
                       color: Colors.grey.shade300,
-                      offset: Offset(5, 5))
+                      offset: const Offset(5, 5))
                 ]),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -201,12 +202,12 @@ class MainScreen extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Expanded(
               child: ListView.builder(
-                  itemCount: 3,
+                  itemCount: transactionsData.length,
                   itemBuilder: (context, int i) {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 16),
@@ -215,7 +216,7 @@ class MainScreen extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(12)),
                         child: Padding(
-                          padding: EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -228,16 +229,16 @@ class MainScreen extends StatelessWidget {
                                         width: 50,
                                         height: 50,
                                         decoration: BoxDecoration(
-                                            color: Colors.yellow[700],
+                                            color: transactionsData[i]['color'],
                                             shape: BoxShape.circle),
                                       ),
-                                      Icon(
+                                      const Icon(
                                         Icons.food_bank,
                                         color: Colors.white,
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 12,
                                   ),
                                   Text("Food",
