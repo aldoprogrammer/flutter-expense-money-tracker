@@ -48,7 +48,7 @@ class MainScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Jhon Doe Aldo Ganti Lah",
+                        "Aldo L.S.",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
