@@ -53,7 +53,7 @@ class _AddExpenseState extends State<AddExpense> {
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         FontAwesomeIcons.dollarSign,
                         size: 16,
                         color: Colors.grey,
@@ -70,13 +70,88 @@ class _AddExpenseState extends State<AddExpense> {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: TextFormField(
                   controller: categoryController,
+                  textAlignVertical: TextAlignVertical.center,
+                  onTap: () {},
+                  readOnly: true,
                   decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.white,
-                      prefixIcon: Icon(
+                      fillColor: const Color.fromRGBO(255, 255, 255, 1),
+                      prefixIcon: const Icon(
                         FontAwesomeIcons.list,
                         size: 16,
                         color: Colors.grey,
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (ctx) {
+                                return AlertDialog(
+                                  title: const Text("Add category"),
+                                  backgroundColor:
+                                      Colors.lightBlue[100], // Sky blue color
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextFormField(
+                                        // controller: expenseController,
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            // prefixIcon: const Icon(
+                                            //   FontAwesomeIcons.dollarSign,
+                                            //   size: 16,
+                                            //   color: Colors.grey,
+                                            // ),
+                                            hintText: "Name",
+                                            border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                                borderSide: BorderSide.none)),
+                                      ),
+                                      const SizedBox(
+                                        height: 16,
+                                      ),
+                                      TextFormField(
+                                        // controller: expenseController,
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            // prefixIcon: const Icon(
+                                            //   FontAwesomeIcons.dollarSign,
+                                            //   size: 16,
+                                            //   color: Colors.grey,
+                                            // ),
+                                            hintText: "Icon",
+                                            border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                                borderSide: BorderSide.none)),
+                                      ),
+                                      const SizedBox(
+                                        height: 16,
+                                      ),
+                                      TextFormField(
+                                        // controller: expenseController,
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "Color",
+                                            border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                                borderSide: BorderSide.none)),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              });
+                        },
+                        icon: const Icon(
+                          FontAwesomeIcons.plus,
+                          size: 16,
+                          color: Colors.grey,
+                        ),
                       ),
                       hintText: "Category",
                       border: OutlineInputBorder(
@@ -111,7 +186,7 @@ class _AddExpenseState extends State<AddExpense> {
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         FontAwesomeIcons.clock,
                         size: 16,
                         color: Colors.grey,
