@@ -16,6 +16,16 @@ class _AddExpenseState extends State<AddExpense> {
   TextEditingController dateController = TextEditingController();
   DateTime selectDate = DateTime.now();
 
+  List<String> myCategoriesIcons = [
+    "entertainment",
+    "food",
+    "home",
+    "pet",
+    "shopping",
+    "tech",
+    "travel"
+  ];
+
   @override
   void initState() {
     dateController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
@@ -126,7 +136,7 @@ class _AddExpenseState extends State<AddExpense> {
                                                 isDense: true,
                                                 filled: true,
                                                 fillColor: Colors.white,
-                                                suffixIcon: Icon(
+                                                suffixIcon: const Icon(
                                                   CupertinoIcons.chevron_down,
                                                   size: 12,
                                                 ),
@@ -145,7 +155,9 @@ class _AddExpenseState extends State<AddExpense> {
                                               )),
                                           isExpanded
                                               ? Container(
-                                                  width: double.infinity,
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
                                                   height: 200,
                                                   decoration:
                                                       const BoxDecoration(
@@ -156,6 +168,30 @@ class _AddExpenseState extends State<AddExpense> {
                                                           Radius.circular(12),
                                                     ),
                                                   ),
+                                                  child: GridView.builder(
+                                                      gridDelegate:
+                                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                                              crossAxisCount:
+                                                                  3),
+                                                      itemCount:
+                                                          myCategoriesIcons
+                                                              .length,
+                                                      itemBuilder:
+                                                          (context, int i) {
+                                                        return Container(
+                                                          width: 50,
+                                                          height: 50,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            image:
+                                                                DecorationImage(
+                                                              image: AssetImage(
+                                                                'assets/${myCategoriesIcons[i]}.png',
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }),
                                                 )
                                               : Container(),
                                           const SizedBox(
